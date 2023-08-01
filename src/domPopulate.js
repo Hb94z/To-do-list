@@ -20,7 +20,7 @@ function populateProject(project) {
   
     container.appendChild(clone);
     project.dataNum = `${counter}`;
-    project.numNum = 0;
+    project.toDoItemReferenceNum = 0;
   counter++;
   let dataNum = projectInfo.getAttribute('data-num');
 
