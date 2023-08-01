@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>To-do</title>
+    <script src="main.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+     <header class="header"> Make your own Todo!</header>
+
+
+
+  
+     <div class="main">
+      <div class="settings">
+        <button id="add">Add Project</button>
+        
+      </div>
+      <div id="project-container">
+       
+         
+      </div>
+     </div>
+
+     <footer class="footer"></footer>
+     <div class="modal" id="add-project">
+      <form class="add-project-form" id="addprojectform">
+          <h3>New Project</h3>
+      <input
+        class="input"
+        type="text"
+        id="project-name"
+        placeholder="Project Name"
+        required
+        maxlength="100"
+      />
+      <input
+        class="input"
+        type="text"
+        id="description"
+        placeholder="description"
+        required
+        maxlength="10000"
+      />
+      <input
+      class="input"
+      type="date"
+      id="deadline"
+      placeholder="deadline"
+      required
+      />
+      <button class="form-button" type="submit">Submit</button>
+      </form>
+     </div>
+     <div class="modal2" id="add-to-do">
+      <form class="add-to-do-form" id="addToDoForm">
+          <h3>Add To-Do</h3>
+      <input
+        class="input"
+        type="text"
+        id="To-Do-Name"
+        placeholder="To Do Name"
+        required
+        maxlength="100"
+      />
+      
+      <button class="form-button" type="submit">Submit</button>
+      </form>
+     </div>
+     <template id="project-template">
+      <div class="new-project" data-num="">
+        
+        <div class="project-info">
+          <div class="title1">Complete Task</div>
+          <div class="description1">This task will be to do this task and make sure the task is done when it is ready.</div>
+          <div class="deadline1">Deadline:</div>
+          
+          
+        </div>
+        <div class="project-to-dos">
+          <div class="to-dos">
+            
+            <form class="to-do-form" data-num="">
+
+            </form>
+
+
+          </div>
+          
+          <button class="edit-to-dos">+</button>
+          
+          
+          
+
+        </div>
+        <button class="Remove">Remove</button>
+      </div>
+     </template>
+     <template id="check-box-to-do-item">
+      <div class="check-box-container">
+        <input class= "to-do-item" type="checkbox" id="" name="colors" value="red"/>
+        <label class= "to-do-label" for="">Coding</label>
+      </div>
+     </template>
+    
+  </body>
+</html>
