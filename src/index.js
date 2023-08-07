@@ -23,7 +23,7 @@ let addProject = (() => {
 function addToDo(dataNum) {
 
   let modal2 = document.getElementById("add-to-do");
-  console.log(dataNum); // tracks dataNum correctly
+  console.log(dataNum); 
   modal2.style.display = "block";
   let addTodo = "";
   window.onclick = function(e) {
@@ -33,7 +33,7 @@ function addToDo(dataNum) {
   }
       
   let form = document.getElementById("addToDoForm")
-  console.log(dataNum); //also tracks dataNum correctly
+  console.log(dataNum); 
         
   form.addEventListener("submit", logSubmit, false);
   
@@ -43,16 +43,12 @@ function addToDo(dataNum) {
     
     let modal = document.getElementById("add-to-do");
     let toDo = document.getElementById("To-Do-Name").value;
-    console.log(dataNum); // HERE IT HANGS ON TO THE PAST VALUE PERMANANTLY
+    console.log(dataNum); 
     
     modal.style.display = "none";
     addTodo = objectArr.find((todos) => todos.dataNum === dataNum);
     
-     let arrayofToDoObjects = addTodo.toDos;
-     //arrayofToDoObjects[addTodo.toDoItemReferenceNum].todoitem = toDo;
-     //arrayofToDoObjects[addTodo.toDoItemReferenceNum].reference = input.id;
-     //console.log(arrayofToDoObjects[addTodo.toDoItemReferenceNum].todoitem)
-    //addTodo.toDos.push(toDo);
+    let arrayofToDoObjects = addTodo.toDos;
     let inp = (dataNum + addTodo.toDoItemReferenceNum);
     let toDoos = toDoFactory(toDo, inp);
 addTodo.toDos.push(toDoos);
@@ -63,8 +59,7 @@ addTodo.toDos.push(toDoos);
   };
    
 };
-//const uncle = Factory('uncle', 44, []);
-//MasterArray[indexOfObject].relatives.push(uncle)
+
 
 function updateListdisplay(dataNum, addTodo, arrayofToDoObjects, inp) {
   console.log(addTodo.title)
@@ -92,12 +87,10 @@ input.id = inp;
 label.htmlFor = (dataNum + addTodo.toDoItemReferenceNum);
 editButton.id = ("remove" + dataNum + addTodo.toDoItemReferenceNum);
 checkboxContainer.setAttribute("to-do-num", inp);
-//label.innerHTML = addTodo.toDos[addTodo.toDoItemReferenceNum];
+
 let displayValue = arrayofToDoObjects[addTodo.toDoItemReferenceNum].todoitem;
 let CapitalisedDisplayValue = displayValue.charAt(0).toUpperCase() + displayValue.slice(1);
 label.innerHTML = CapitalisedDisplayValue;
-
-//arrayofToDoObjects[addTodo.toDoItemReferenceNum].reference = input.id;
 
 addTodo.toDoItemReferenceNum++
 container.appendChild(clone);
@@ -116,9 +109,7 @@ form.addEventListener("submit", (e) => {
   let descriptionGet = document.getElementById("description").value;
   let deadlineGet = document.getElementById('deadline').value;
   let toDos = [];
-  //let toDos = [{ todoitem: "", reference: ""}
-  //];
-  //let toDoos = toDoFactory(toditem, reference);
+
   
   
   
@@ -198,7 +189,7 @@ return
 
 function removetoDo(removeId, removeReferenceNum, dataNum) {
   console.log("removeid is" + removeId + "removereferencenum is" + removeReferenceNum + "datanum is" + dataNum);
-  //objectArr = objectArr.filter((project, index) => {
+  
     let thisone = objectArr.find((todos) => todos.dataNum === dataNum);
     let toDoListItem = thisone.toDos
     const idk = toDoListItem.findIndex(object => {
@@ -207,9 +198,7 @@ function removetoDo(removeId, removeReferenceNum, dataNum) {
     console.log(idk + "this is idk")
     console.log(thisone);
     if (toDoListItem[idk].reference == removeId) {
-      //let toDoListItem = project.toDos
-      console.log("hey");
-      //if (toDoListItem[removeReferenceNum].reference == removeId) { console.log("this code would remove it")}
+
       console.log(thisone)
       console.log("num is" + thisone.dataNum)
       let div = document.querySelector(`div[to-do-num="${removeId}"]`);
@@ -218,29 +207,17 @@ function removetoDo(removeId, removeReferenceNum, dataNum) {
       toDoListItem.splice(idk, 1); 
       thisone.toDoItemReferenceNum--;
       console.log(objectArr)
-      //code is broken becase the reference cant match the array index when they get removed and added
-      //in a certain pattern. need to figure out that.so removereferenceid is wrong there becase it will say 1, when index is
-      //now 0 due to removes. how to i keep this in sync?
-      //let referncenum == item and incrimentd ecrement?
-      
+
       return false;
       
     }
     
     return true;  
     
-//});
+
   
   }
 
 
   let div1 = document.getElementById('project-container');
     div1.addEventListener('click', buttonHandler);
-  
-
-    //to code the remove or edit of todo items, i think i need to create and objectin the initial
-    //factory function. atm im just making an empty array, but i need to somehow make that array have a
-    //defauly object with to-do-item value and a reference value.
-    //then i can use these to make it work. it currently works if i hard code the number of objects
-    //into that array, but breaks once the items reach that number of hard coded objects.
-    //maybe i can set the values without initiating them somehow like with original
