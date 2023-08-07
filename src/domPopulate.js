@@ -14,8 +14,13 @@ function populateProject(project) {
     projectInfo.setAttribute("data-num", counter);
     addToDoForm1.setAttribute("data-num", counter);
   
-    title.innerHTML = project.title;
-    description.innerHTML = project.description;
+    let titleDisplayValue = project.title;
+    let descriptionDisplayValue = project.description;
+    let CapitalisedTitleDisplayValue = titleDisplayValue.charAt(0).toUpperCase() + titleDisplayValue.slice(1);
+    let CapitalisedDesriptionDisplayValue = descriptionDisplayValue.charAt(0).toUpperCase() + descriptionDisplayValue.slice(1);
+
+    title.innerHTML = CapitalisedTitleDisplayValue;
+    description.innerHTML = CapitalisedDesriptionDisplayValue;
     deadline.innerHTML = ("Deadline: " + project.deadline);
   
     container.appendChild(clone);
